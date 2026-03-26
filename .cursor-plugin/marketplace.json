@@ -1,8 +1,16 @@
 {
+  "name": "loading-studio-autopilot-marketplace",
+  "owner": {
+    "name": "Dev-GustavoRibeiro"
+  },
+  "metadata": {
+    "description": "Marketplace local com o bundle Loading Studio Autopilot (rules, skills, agents, MCPs, bootstrap)."
+  },
   "plugins": [
     {
-      "path": ".",
-      "name": "loading-studio-autopilot"
+      "name": "loading-studio-autopilot",
+      "source": ".",
+      "description": "Discovery-first, paleta travada em JSON, agents/skills especializados, templates e MCPs (Supabase, Context7, Playwright, Figma, Sentry, Linear, GitHub)."
     }
   ]
 }

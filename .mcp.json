@@ -1,18 +1,14 @@
 {
   "mcpServers": {
     "playwright": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@playwright/mcp@latest"
-      ]
+      "args": ["-y", "@playwright/mcp@latest"]
     },
     "context7": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
+      "args": ["-y", "@upstash/context7-mcp@latest"],
       "env": {
         "CONTEXT7_API_KEY": "${env:CONTEXT7_API_KEY}"
       }
@@ -27,12 +23,17 @@
       "url": "https://mcp.sentry.dev/mcp"
     },
     "linear": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.linear.app/mcp"
-      ]
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+    },
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
     }
   }
 }

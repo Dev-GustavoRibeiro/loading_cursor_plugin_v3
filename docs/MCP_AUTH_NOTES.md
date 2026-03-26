@@ -9,8 +9,10 @@ These usually authenticate in the browser after first connection:
 
 ## Token or local runtime based
 These may require environment variables or local runtimes:
-- GitHub local MCP (Docker + PAT)
-- Context7 local MCP (Node + optional API key)
+- **GitHub (plugin default):** stdio via `@modelcontextprotocol/server-github` — set `GITHUB_PERSONAL_ACCESS_TOKEN` (see `.env.example`).
+- GitHub alternative: `mcp-presets/github-remote.json` (Copilot MCP URL + bearer headers).
+- GitHub local MCP (Docker + PAT) — see `mcp-presets/github-local.json`
+- Context7 (Node + npx): optional `CONTEXT7_API_KEY` for higher limits
 - Playwright MCP (Node + npx)
 
 ## Production safety

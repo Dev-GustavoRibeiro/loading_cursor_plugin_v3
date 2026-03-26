@@ -1,6 +1,28 @@
 {
   "name": "loading-studio-autopilot",
-  "displayName": "Loading Studio Autopilot",
-  "version": "3.0.0",
-  "description": "Global Cursor plugin for Loading-style delivery: discovery-first workflows, locked palette governance, specialized agents, and project-ready MCP presets."
+  "version": "3.1.0",
+  "description": "Global Loading-style delivery for Cursor: discovery-first workflows, locked palette governance (JSON), specialist agents and skills, project bootstrap templates, and MCP presets for modern product engineering.",
+  "author": {
+    "name": "Loading Studio"
+  },
+  "repository": "https://github.com/Dev-GustavoRibeiro/loading_cursor_plugin_v3",
+  "homepage": "https://github.com/Dev-GustavoRibeiro/loading_cursor_plugin_v3",
+  "license": "MIT",
+  "keywords": [
+    "loading",
+    "bootstrap",
+    "discovery",
+    "palette",
+    "design-system",
+    "mcp",
+    "agents",
+    "skills",
+    "supabase",
+    "playwright"
+  ],
+  "rules": "rules",
+  "skills": "skills",
+  "agents": "agents",
+  "commands": "commands",
+  "mcpServers": ".mcp.json"
 }

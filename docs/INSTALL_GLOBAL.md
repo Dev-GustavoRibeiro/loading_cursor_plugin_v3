@@ -15,7 +15,15 @@ Install once so new projects automatically inherit this system.
 
 ## Why user-level
 
-A user-level plugin is the cleanest way to avoid copying `.cursor/` folders into every new repository.
+A user-level plugin is the cleanest way to ship **rules, skills, agents, commands, and packaged MCP config** once, instead of duplicating `.cursor/` folders inside every application repository. The Cursor plugin format uses top-level `rules/`, `skills/`, `agents/`, and `commands/` in the plugin repo (see [Plugins reference](https://cursor.com/docs/reference/plugins)).
+
+## Validate before relying on the install
+
+From the plugin repository root:
+
+```bash
+bash scripts/validate-plugin.sh
+```
 
 ## After installation
 

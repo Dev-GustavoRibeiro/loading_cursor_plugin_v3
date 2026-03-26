@@ -1,0 +1,27 @@
+{
+  "allow": {
+    "terminal": [
+      "npm *",
+      "pnpm *",
+      "yarn *",
+      "npx *",
+      "node *",
+      "git status",
+      "git diff *",
+      "git checkout *",
+      "git switch *",
+      "git branch *",
+      "supabase *",
+      "playwright *"
+    ],
+    "mcpTools": [
+      "playwright:*",
+      "context7:*",
+      "supabase:*",
+      "figma:*",
+      "sentry:*",
+      "linear:*",
+      "github:*"
+    ]
+  }
+}

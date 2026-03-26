@@ -47,5 +47,6 @@ Use:
 - Figma MCP for design-aware implementation
 - Sentry MCP for production debugging and issue triage
 - Linear MCP for product planning and issue operations
+- GitHub MCP for repository issues, PRs, and history when automation helps the task
 
 Avoid blindly using every MCP in the same task. Choose the minimum set that improves the task.
