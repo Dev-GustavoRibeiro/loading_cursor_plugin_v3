@@ -1,0 +1,23 @@
+---
+description: Bilingual documentation convention (EN primary + PT companion blocks)
+globs:
+  - "README.md"
+  - "docs/**/*.md"
+  - "**/README.md"
+alwaysApply: false
+---
+
+When you create or substantially edit documentation under `docs/` or root `README.md` for a project:
+
+1. Write the **primary technical content in English** unless the user explicitly requests another primary language.
+2. After **each major section** (or the entire short document), add a Portuguese companion block:
+
+```markdown
+**PT — (comentário / tradução)**  
+<Clear Portuguese: either a faithful summary or full translation of the preceding section>
+```
+
+3. Keep **one source of truth**—do not maintain two diverging documents; PT blocks must reflect the same meaning as the English text.
+4. For legal or compliance text, flag if formal human review is required in either language.
+
+**PT —** Regra: documentação com corpo em **inglês** e blocos **PT —** após cada secção principal; uma única fonte de verdade; PT não pode contradizer o inglês.

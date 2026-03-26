@@ -18,6 +18,16 @@ foreach ($src in @("templates/project-brief.md","templates/page-map.md","templat
   }
 }
 
+$hub = "templates/documentation-hub.md"
+$readme = Join-Path "docs" "README.md"
+if ((Test-Path $hub) -and -not (Test-Path $readme)) {
+  Copy-Item $hub $readme
+  Write-Host "[created] docs/README.md (from documentation-hub template)"
+} elseif (Test-Path $readme) {
+  Write-Host "[skip] docs/README.md already exists"
+}
+
 Write-Host ""
 Write-Host "Bootstrap finished."
 Write-Host "Next: ask the agent to refine these files with discovery answers."
+Write-Host "Optional: act as software-documentation-engineer for FR/NFR and mind maps."

@@ -16,8 +16,8 @@ agents/                      # Agentes .md (frontmatter: name, description)
 commands/                    # Comandos .md / .txt (frontmatter: name, description)
 .mcp.json                    # Servidores MCP (chave mcpServers)
 config/                      # Exemplos: paleta default, schema, style contract
-templates/                   # Artefactos copiados para projetos novos
-docs/                        # Guias operacionais
+templates/                   # Seeds: brief, RFC, FR/NFR, doc hub, mind map, …
+docs/                        # Guias do plugin + catálogo de agentes, convenção EN+PT
 mcp-presets/                 # Bundles MCP opcionais (merge manual)
 scripts/
 ├── validate-plugin.sh       # Validação antes de publicar

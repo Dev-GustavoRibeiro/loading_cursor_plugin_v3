@@ -21,6 +21,8 @@ Use this skill when starting a new project or re-initializing an existing one.
 - `config/project-style-contract.json`
 - `docs/page-map.md`
 - `docs/architecture-rfc.md`
+- `docs/README.md` (documentation hub — use `templates/documentation-hub.md`)
+- Optional next step: invoke **`software-documentation-engineer`** for `functional-requirements.md`, `nonfunctional-requirements.md`, and mind maps (`templates/` seeds)
 
 ## Rules
 - ask for or confirm the palette first

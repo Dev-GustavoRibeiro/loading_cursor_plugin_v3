@@ -10,7 +10,7 @@
     {
       "name": "loading-studio-autopilot",
       "source": ".",
-      "description": "Discovery-first, paleta travada em JSON, agents/skills especializados, templates e MCPs (Supabase, Context7, Playwright, Figma, Sentry, Linear, GitHub)."
+      "description": "Discovery-first, locked palette JSON, 23 specialist agents, skills, FR/NFR documentation templates, bilingual EN+PT doc convention, MCPs (Supabase, Context7, Playwright, Figma, Sentry, Linear, GitHub)."
     }
   ]
 }

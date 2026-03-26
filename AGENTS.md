@@ -24,6 +24,9 @@ This plugin is opinionated.
   - `config/project-style-contract.json`
   - `docs/architecture-rfc.md`
   - `docs/page-map.md`
+  - `docs/README.md` (hub linking all docs)
+- For requirements and bilingual docs (EN + PT blocks), use **`software-documentation-engineer`** and templates under `templates/`.
+- Full agent list: `docs/AGENTS_CATALOG.md`.
 
 ## Visual governance
 

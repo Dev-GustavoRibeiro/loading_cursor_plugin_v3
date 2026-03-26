@@ -1,115 +1,201 @@
-# Loading Studio Autopilot — Cursor Plugin
+# Loading Studio Autopilot — Cursor plugin
 
-Plugin de utilizador para o Cursor que alinha **novos projetos** ao mesmo sistema de entrega:
+**Loading Studio Autopilot** is a **user-level Cursor plugin** that standardizes how your company (or you personally) run software projects in Cursor: discovery-first delivery, locked palette governance, deep specialist **agents**, reusable **skills**, documentation engineering (including **functional / non-functional requirements** and **mind maps**), bootstrap templates, and MCP presets.
 
-- discovery antes de implementação
-- governança de paleta com contratos JSON travados
-- defaults Loading quando fizer sentido (com confirmação)
-- agents e skills especializados
-- templates e scripts de bootstrap
-- MCPs pré-configurados para fluxo de produto (com autenticação onde for obrigatório)
+**PT — (comentário / tradução)**  
+Este é um **plugin de utilizador** do Cursor que padroniza como a empresa (ou tu) trabalha: primeiro discovery, paleta travada em JSON, **agentes** especializados (prompts profundos em inglês), **skills** reutilizáveis, **documentação** (requisitos funcionais/não funcionais, mapas mentais), templates de arranque e MCPs. O texto principal deste README está em **inglês**; cada secção traz um bloco **PT —** para quem prefere ler em português.
 
-A estrutura segue o formato oficial de plugins do Cursor (`rules/`, `skills/`, `agents/`, `commands/`, `.mcp.json`). Referência: [Plugins reference](https://cursor.com/docs/reference/plugins).
+---
 
-## Validar o bundle antes de instalar ou publicar
+## Who this is for
 
-Na raiz deste repositório:
+| Audience | How you benefit |
+|----------|-----------------|
+| **Company / team** | One shared behavior model: same agents, same doc standards, same governance. |
+| **Individual** | A polished “operating system” for Cursor without maintaining your own rules from scratch. |
+| **Tech lead** | Deep agents + catalog + orchestration patterns for delegation in chat. |
+
+**PT —** Serve para **empresas**, **equipas** ou **indivíduos** que querem o mesmo modo de trabalho no Cursor, com agentes e documentação alinhados.
+
+---
+
+## What you get (inventory)
+
+- **`rules/`** — Always-on behavior (discovery, palette lock, security baseline, **bilingual doc convention** for `docs/`).
+- **`agents/`** — 23 specialist agents (see **`docs/AGENTS_CATALOG.md`**), including **`software-documentation-engineer`** for FR/NFR, doc hub, mind maps, ADRs.
+- **`skills/`** — Packaged workflows (`project-bootstrap`, `documentation-engineering`, `mcp-selection`, etc.).
+- **`commands/`** — Agent-executable commands (bootstrap, validate plugin).
+- **`templates/`** — Copy-paste seeds: brief, RFC, **functional-requirements**, **nonfunctional-requirements**, **documentation-hub**, **mind-map-outline**, handoff, security review.
+- **`.mcp.json`** — Playwright, Context7, Supabase, Figma, Sentry, Linear, GitHub (optional tokens).
+- **`scripts/`** — Validate plugin bundle; bootstrap scripts for **client repos** (not for editing the plugin itself).
+
+**PT —** Recebes regras, agentes (23), skills, comandos, templates (incluindo requisitos e mapas mentais), MCPs e scripts de validação.
+
+---
+
+## Configure it your way (recommended profiles)
+
+You do **not** have to use everything. Pick a profile and tell the team:
+
+1. **Minimal** — Install plugin; use only `rules/` + `project-bootstrap` + `mcp-orchestrator`. Add MCPs as needed.
+2. **Standard product team** — Minimal + `software-documentation-engineer` on every epic + `linear-product-ops-specialist` for issue breakdown.
+3. **Full stack web** — Standard + `supabase-platform-specialist` / `backend-systems-architect` + `frontend-architecture-lead` + Playwright skill.
+4. **Design-heavy** — Add `web-design-director`, `figma-design-handoff-specialist`, `design-audit-specialist`.
+
+**PT —** Podes **reduzir ou expandir** o uso: perfil mínimo só regras e bootstrap; perfil completo com documentação, Linear, Supabase, design, etc.
+
+---
+
+## Install (user-level plugin)
+
+1. Push or fork this GitHub repository (or use the upstream URL your company approves).
+2. Cursor → **Dashboard → Settings → Plugins → Import**.
+3. Paste the repository URL.
+4. Install at **user level** (recommended).
+5. Restart Cursor if prompted.
+6. **Settings → Tools & MCP** — complete OAuth for remote servers; set `CONTEXT7_API_KEY` and `GITHUB_PERSONAL_ACCESS_TOKEN` if you use those stdio servers.
+
+**PT —** Instalação: importar o URL do GitHub como plugin de **utilizador**; depois configurar MCPs e variáveis de ambiente.
+
+---
+
+## Validate before publishing or trusting CI
 
 ```bash
 bash scripts/validate-plugin.sh
 ```
 
-Windows (PowerShell):
+Windows PowerShell:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/validate-plugin.ps1
 ```
 
-Opcional: instala [jq](https://jqlang.org/) para validação estrita do JSON.
+Optional: install **`jq`** for strict JSON checks.
 
-## Instalação global no Cursor
+**PT —** Corre o script na **raiz deste repositório** antes de publicar ou de reportar “plugin quebrado”.
 
-1. Garante que o repositório está no GitHub (ou usa um fork).
-2. Cursor → **Dashboard → Settings → Plugins → Import**.
-3. Cola o URL do repositório Git.
-4. Instala a **nível de utilizador** (recomendado).
-5. Reinicia o Cursor se a UI o pedir.
-6. **Settings → Tools & MCP**: autentica servidores remotos (OAuth) e define variáveis para os baseados em stdio/token (ex.: `CONTEXT7_API_KEY`, `GITHUB_PERSONAL_ACCESS_TOKEN`).
+---
 
-### O painel “Skills” mostra “No Skills Yet” — é normal?
+## Documentation convention: English + Portuguese blocks
 
-Muitas vezes **sim**: o ecrã **Skills** com **+ New** é orientado a skills **criadas manualmente**. As skills do **plugin** costumam aparecer no fluxo **Settings → Rules** (zona **Agent Decides**) e podem ser usadas no chat com `/nome-da-skill` ou pedidos do tipo `Use the project-bootstrap skill`. No **Windows** existiu um bug em que skills/agents/commands do plugin falhavam em silêncio (MCP continuava a funcionar); **atualiza o Cursor** e vê [docs/SKILLS_UI_CURSOR.md](docs/SKILLS_UI_CURSOR.md).
+For **client project** docs (`docs/**/*.md`, root `README.md`):
 
-## Teste local (desenvolvimento do plugin)
+- Write the main content in **English**.
+- After each major section, add:
 
-1. Corre o script de validação (acima).
-2. Importa **esta pasta/repo** como plugin de utilizador (mesmo fluxo da instalação global).
-3. Abre **Output → MCP Logs** e confirma que não há erros de carregamento do `.mcp.json`.
-4. Num projeto de teste, pede: `Use the project-bootstrap skill` ou `Act as the project-discovery-strategist`.
+```markdown
+**PT — (comentário / tradução)**  
+<Portuguese summary or translation>
+```
 
-## Reinstalar ou atualizar
+Read **`docs/BILINGUAL_CONVENTION.md`** and rule **`rules/10-bilingual-documentation.mdc`**.
 
-- Após `git push`, no Cursor abre **Plugins**, remove a entrada antiga se necessário, e **importa de novo** o URL do GitHub, ou usa a ação de atualização se a tua versão do Cursor a expuser.
+**PT —** Nos **projetos**, a documentação deve ter **inglês** + blocos **PT —** por secção. Isto ajuda equipas mistas EN/PT sem dois ficheiros divergentes.
 
-## O que fica automático após instalar
+---
 
-- Regras globais de comportamento (`rules/`)
-- Agentes (`agents/`) e skills (`skills/`)
-- Comandos (`commands/`)
-- Definições MCP empacotadas (`.mcp.json` do plugin)
+## Agents: how to invoke
 
-## MCPs incluídos no `.mcp.json` do plugin
+- Full table: **`docs/AGENTS_CATALOG.md`**
+- Deep prompts: each file in **`agents/*.md`**
+- Copy-paste examples: **`examples/quick-start-prompts.md`**
 
-| Servidor   | Transporte | Notas |
-|-----------|------------|--------|
-| Playwright | stdio (`npx`) | Requer Node/npx |
-| Context7   | stdio | Opcional: `CONTEXT7_API_KEY` em variáveis de ambiente |
-| Supabase   | remoto (`url`) | OAuth no Cursor |
-| Figma      | remoto | OAuth; regista redirect `cursor://anysphere.cursor-mcp/oauth/callback` na app OAuth |
-| Sentry     | remoto | OAuth |
-| Linear     | stdio via `mcp-remote` | OAuth ao conectar |
-| GitHub     | stdio (`@modelcontextprotocol/server-github`) | `GITHUB_PERSONAL_ACCESS_TOKEN` |
+Pattern:
 
-Presets adicionais em `mcp-presets/` (GitHub remoto Copilot API, stacks lean/design, etc.).
+```
+Act as software-documentation-engineer ...
+```
 
-## Presets opcionais
+**PT —** Lista de agentes em `docs/AGENTS_CATALOG.md`; exemplos em `examples/quick-start-prompts.md`; invoca com `Act as ...`.
 
-Em `mcp-presets/`:
+---
 
-- GitHub local (Docker) / remoto
-- observabilidade completa
-- design-heavy
-- lean startup
-- fullstack Supabase
+## Skills: how to invoke
 
-## Governança visual (inalterada)
+```
+Use the documentation-engineering skill ...
+Use the project-bootstrap skill ...
+```
 
-- Confirmar paleta antes de definir o sistema visual principal.
-- Cores de marca em `config/project-palette.json` (nos **projetos** que criares).
-- Cores semânticas (sucesso, erro, aviso, info) permitidas.
-- Discovery e arquitetura antes de implementação em larga escala.
+**PT —** Usa `Use the <skill-name> skill` no chat.
 
-## Pastas principais deste repositório
+---
 
-| Pasta / ficheiro | Função |
-|------------------|--------|
-| `.cursor-plugin/plugin.json` | Manifesto obrigatório do plugin |
-| `.cursor-plugin/marketplace.json` | Manifesto de marketplace (repo único) |
-| `rules/` | Regras `.mdc` com frontmatter |
-| `skills/` | Uma pasta por skill com `SKILL.md` |
-| `agents/` | Agentes em Markdown |
-| `commands/` | Comandos para o agente |
-| `.mcp.json` | MCPs do plugin (nome oficial do ficheiro) |
-| `config/` | Paleta e contratos de estilo de **exemplo** / defaults |
-| `templates/` | Templates de brief, RFC, etc. |
-| `docs/` | Guias (instalação, MCP, operação do plugin) |
-| `mcp-presets/` | Packs MCP opcionais |
-| `scripts/` | Bootstrap de **projeto cliente** + `validate-plugin` |
+## “Skills” panel shows empty — is that normal?
 
-## Documentação extra
+Often **yes**. The **Skills** UI with **+ New** is frequently for **manually created** skills. Plugin skills may appear under **Settings → Rules** (Agent Decides) and can be invoked via `/skill-name` or natural language. On **Windows**, older Cursor builds had a path-separator bug (MCP loaded, agents/skills did not); **update Cursor**. See **`docs/SKILLS_UI_CURSOR.md`**.
 
-- [Instalação global](docs/INSTALL_GLOBAL.md)
-- [Operação e manutenção do plugin](docs/PLUGIN_OPERATIONS.md)
-- [Skills na UI do Cursor e Windows](docs/SKILLS_UI_CURSOR.md)
-- [Estrutura do plugin](docs/PLUGIN_STRUCTURE.md)
-- [Notas de autenticação MCP](docs/MCP_AUTH_NOTES.md)
+**PT —** O painel “Skills” pode estar vazio mesmo com plugin válido; ver secção Rules / atualizar Cursor no Windows.
+
+---
+
+## MCP servers (bundled defaults)
+
+| Server | Notes |
+|--------|--------|
+| Playwright | Local `npx` |
+| Context7 | Optional API key |
+| Supabase / Figma / Sentry / Linear | OAuth or remote flow |
+| GitHub | Personal access token |
+
+More: **`docs/MCP_AUTH_NOTES.md`**, presets in **`mcp-presets/`**.
+
+**PT —** Tabela resumida; detalhes nos docs de MCP.
+
+---
+
+## Repo layout (plugin root)
+
+| Path | Role |
+|------|------|
+| `.cursor-plugin/plugin.json` | Manifest |
+| `.cursor-plugin/marketplace.json` | Optional marketplace index |
+| `rules/` | `.mdc` rules |
+| `agents/` | Agent definitions |
+| `skills/` | `SKILL.md` per folder |
+| `commands/` | Command markdown |
+| `.mcp.json` | MCP config (leading dot — official name) |
+| `templates/` | Project seeds |
+| `docs/` | Plugin guides + `AGENTS_CATALOG`, `BILINGUAL_CONVENTION` |
+| `config/` | Example palette / style contracts (for **client** projects) |
+
+**PT —** Estrutura oficial do plugin Cursor; não coloques `rules` dentro de `.cursor/` neste repositório.
+
+---
+
+## Permissions (optional)
+
+Suggested allow-list for tool auto-run: **`docs/cursor-permissions-recommended.json`** → merge into your **`~/.cursor/permissions.json`** as you see fit.
+
+**PT —** Sugestão de permissões; copia para o teu perfil Cursor se quiseres menos confirmações.
+
+---
+
+## Update / reinstall
+
+After `git push`, re-import the repo in **Plugins** or use the update action your Cursor version provides.
+
+**PT —** Após push, volta a importar ou atualiza o plugin nas definições.
+
+---
+
+## Further reading
+
+- [Global install notes](docs/INSTALL_GLOBAL.md)
+- [Plugin operations](docs/PLUGIN_OPERATIONS.md)
+- [Plugin structure](docs/PLUGIN_STRUCTURE.md)
+- [Skills UI & Windows](docs/SKILLS_UI_CURSOR.md)
+- [MCP auth notes](docs/MCP_AUTH_NOTES.md)
+- [Bilingual convention](docs/BILINGUAL_CONVENTION.md)
+- [Agents catalog](docs/AGENTS_CATALOG.md)
+
+**PT —** Links acima: instalação, operação, estrutura, MCP, convenção bilíngue e catálogo de agentes.
+
+---
+
+## License
+
+See **`LICENSE`** if present in your fork; otherwise follow your organization’s policy.
+
+**PT —** Licença conforme o repositório que utilizas (ou política da empresa).

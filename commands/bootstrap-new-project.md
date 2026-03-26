@@ -14,5 +14,7 @@ description: Executa o fluxo de discovery, trava paleta em JSON e gera artefatos
    - `config/project-style-contract.json`
    - `docs/page-map.md`
    - `docs/architecture-rfc.md`
-5. Opcional: rode `scripts/bootstrap/new-project.sh` ou `scripts/bootstrap/new-project.ps1` no projeto alvo para cópia inicial dos templates.
-6. Escolha o conjunto mínimo de MCPs com a skill **mcp-selection** e autentique remotos em **Settings → Tools & MCP** quando necessário.
+   - `docs/README.md` (documentation hub; template `templates/documentation-hub.md`)
+5. Opcional: peça **software-documentation-engineer** para `functional-requirements.md`, `nonfunctional-requirements.md`, mind maps — sempre com blocos **PT —** por secção.
+6. Opcional: rode `scripts/bootstrap/new-project.sh` ou `scripts/bootstrap/new-project.ps1` no projeto alvo para cópia inicial dos templates.
+7. Escolha o conjunto mínimo de MCPs com a skill **mcp-selection** e autentique remotos em **Settings → Tools & MCP** quando necessário.

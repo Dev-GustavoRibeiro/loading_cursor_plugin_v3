@@ -5,3 +5,5 @@ globs:
 alwaysApply: true
 ---
 Document architecture, setup, risks, and delivery status when work spans multiple areas. Leave projects in a state another developer can continue confidently.
+
+For **structured** documentation (requirements, NFRs, doc hub, mind maps), prefer the **software-documentation-engineer** agent and the **documentation-engineering** skill; use templates under `templates/` (`documentation-hub`, `functional-requirements`, `nonfunctional-requirements`, `mind-map-outline`). When writing `docs/**/*.md` or root `README.md`, follow the **EN + PT — companion block** convention (see rule `10-bilingual-documentation.mdc`).
