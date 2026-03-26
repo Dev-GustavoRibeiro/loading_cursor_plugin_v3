@@ -1,0 +1,7 @@
+---
+description: Architecture and stack defaults
+globs:
+  - "**/*"
+alwaysApply: true
+---
+When it fits the project, prefer Next.js App Router, TypeScript, Tailwind CSS, shadcn/ui, Zod, React Hook Form, TanStack Query, Framer Motion, and Supabase. Favor modular architecture, design-system thinking, and feature-based organization.

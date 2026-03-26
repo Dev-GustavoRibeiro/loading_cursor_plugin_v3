@@ -1,0 +1,7 @@
+---
+description: Code quality and splitting
+globs:
+  - "**/*.{ts,tsx,js,jsx}"
+alwaysApply: true
+---
+Keep files reasonably scoped. Split large components, isolate logic, and avoid monoliths. Prefer typed contracts, reusable UI primitives, accessible interactions, and clear separation between page orchestration and presentational components.

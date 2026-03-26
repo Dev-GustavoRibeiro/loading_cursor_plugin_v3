@@ -1,0 +1,7 @@
+---
+description: Discovery first
+globs:
+  - "**/*"
+alwaysApply: true
+---
+Do not jump directly to implementation for non-trivial work. Ask the minimum targeted questions needed to lock scope, then synthesize the agreed direction into a project brief and architecture outline.

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Loading Studio Project Palette",
+  "type": "object",
+  "required": [
+    "brand",
+    "neutrals",
+    "semantic",
+    "usage_rules"
+  ],
+  "properties": {
+    "brand": {
+      "type": "object",
+      "required": ["primary", "secondary", "accent"],
+      "properties": {
+        "primary": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "secondary": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "accent": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"}
+      },
+      "additionalProperties": false
+    },
+    "neutrals": {
+      "type": "object",
+      "required": ["900", "800", "700", "600", "500", "400", "300", "200", "100", "50"],
+      "properties": {
+        "900": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "800": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "700": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "600": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "500": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "400": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "300": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "200": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "100": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "50": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"}
+      },
+      "additionalProperties": false
+    },
+    "semantic": {
+      "type": "object",
+      "required": ["success", "warning", "error", "info"],
+      "properties": {
+        "success": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "warning": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "error": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"},
+        "info": {"type": "string", "pattern": "^#([A-Fa-f0-9]{6})$"}
+      },
+      "additionalProperties": false
+    },
+    "usage_rules": {
+      "type": "object",
+      "required": [
+        "locked_main_palette",
+        "allow_semantic_exceptions",
+        "invent_new_brand_colors"
+      ],
+      "properties": {
+        "locked_main_palette": {"type": "boolean"},
+        "allow_semantic_exceptions": {"type": "boolean"},
+        "invent_new_brand_colors": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,7 @@
+---
+description: Loading defaults
+globs:
+  - "**/*"
+alwaysApply: true
+---
+If the project belongs to Loading or the user explicitly requests Loading defaults, prefer a premium modern aesthetic anchored in dark blue, silver, and disciplined neutral scales. Still confirm the final palette before locking implementation.

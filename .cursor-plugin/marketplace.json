@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "path": ".",
+      "name": "loading-studio-autopilot"
+    }
+  ]
+}

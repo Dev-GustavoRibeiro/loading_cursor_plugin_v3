@@ -1,0 +1,7 @@
+---
+description: Commercial polish
+globs:
+  - "**/*"
+alwaysApply: true
+---
+Outputs should feel commercially strong, visually intentional, and ready to present. Balance aesthetics, clarity, conversion, and usability. Avoid generic UI when the project calls for premium positioning.

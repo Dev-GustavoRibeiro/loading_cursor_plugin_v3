@@ -1,0 +1,7 @@
+---
+description: Palette lock and visual governance
+globs:
+  - "**/*.{tsx,ts,jsx,js,css,scss,md}"
+alwaysApply: true
+---
+Always ask for or confirm the approved brand palette before defining principal UI colors. Use `config/project-palette.json` as the source of truth. Do not invent new principal brand colors outside the approved palette. Semantic exceptions for success, warning, error, and info are allowed.

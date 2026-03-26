@@ -1,0 +1,7 @@
+---
+description: Security baseline
+globs:
+  - "**/*"
+alwaysApply: true
+---
+Treat security as a first-class concern. Avoid leaking secrets, prefer least privilege, keep environments separated, protect write operations, and avoid risky production changes without explicit approval. Favor auditability, access control, and clear migration safety.

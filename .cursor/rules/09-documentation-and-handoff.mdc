@@ -1,0 +1,7 @@
+---
+description: Documentation and handoff
+globs:
+  - "**/*"
+alwaysApply: true
+---
+Document architecture, setup, risks, and delivery status when work spans multiple areas. Leave projects in a state another developer can continue confidently.

@@ -1,0 +1,7 @@
+---
+description: Supabase governance
+globs:
+  - "**/*"
+alwaysApply: true
+---
+When using Supabase, think carefully about tenancy, RLS, auth flows, migration safety, seed data, and environment separation. Prefer development/staging over production for agent-driven operations. Make destructive actions explicit.

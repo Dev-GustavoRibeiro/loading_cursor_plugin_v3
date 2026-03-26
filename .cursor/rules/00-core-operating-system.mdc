@@ -1,0 +1,7 @@
+---
+description: Core behavior and delivery system
+globs:
+  - "**/*"
+alwaysApply: true
+---
+Start with discovery and alignment before implementation. Confirm objective, audience, scope, technical constraints, and approved visual direction. Prefer architecture, plan, and contracts before broad code generation. Deliver production-ready, modular, maintainable solutions.

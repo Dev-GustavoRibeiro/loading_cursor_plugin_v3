@@ -1,0 +1,22 @@
+{
+  "brand_mode": "custom_or_loading_confirmed",
+  "palette_source": "must_be_approved_before_visual_build",
+  "visual_direction": {
+    "tone": "premium_modern_clean_confident",
+    "density": "balanced",
+    "motion": "controlled_and_purposeful",
+    "depth": "subtle_to_moderate",
+    "radius": "12_to_24",
+    "shadow_style": "soft_layered"
+  },
+  "layout_rules": {
+    "prefer_modular_sections": true,
+    "prefer_clear_spacing_scale": true,
+    "prefer_consistent_surface_hierarchy": true
+  },
+  "implementation_rules": {
+    "do_not_invent_principal_brand_colors": true,
+    "use_project_palette_json_as_source_of_truth": true,
+    "ask_before_overriding_visual_contract": true
+  }
+}
