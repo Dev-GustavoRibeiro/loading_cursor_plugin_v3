@@ -36,6 +36,10 @@ Opcional: instala [jq](https://jqlang.org/) para validação estrita do JSON.
 5. Reinicia o Cursor se a UI o pedir.
 6. **Settings → Tools & MCP**: autentica servidores remotos (OAuth) e define variáveis para os baseados em stdio/token (ex.: `CONTEXT7_API_KEY`, `GITHUB_PERSONAL_ACCESS_TOKEN`).
 
+### O painel “Skills” mostra “No Skills Yet” — é normal?
+
+Muitas vezes **sim**: o ecrã **Skills** com **+ New** é orientado a skills **criadas manualmente**. As skills do **plugin** costumam aparecer no fluxo **Settings → Rules** (zona **Agent Decides**) e podem ser usadas no chat com `/nome-da-skill` ou pedidos do tipo `Use the project-bootstrap skill`. No **Windows** existiu um bug em que skills/agents/commands do plugin falhavam em silêncio (MCP continuava a funcionar); **atualiza o Cursor** e vê [docs/SKILLS_UI_CURSOR.md](docs/SKILLS_UI_CURSOR.md).
+
 ## Teste local (desenvolvimento do plugin)
 
 1. Corre o script de validação (acima).
@@ -106,5 +110,6 @@ Em `mcp-presets/`:
 
 - [Instalação global](docs/INSTALL_GLOBAL.md)
 - [Operação e manutenção do plugin](docs/PLUGIN_OPERATIONS.md)
+- [Skills na UI do Cursor e Windows](docs/SKILLS_UI_CURSOR.md)
 - [Estrutura do plugin](docs/PLUGIN_STRUCTURE.md)
 - [Notas de autenticação MCP](docs/MCP_AUTH_NOTES.md)
